@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <string.h>
+#include <errno.h>
 
 #define PROMPT "lambda-shell$ "
 
@@ -103,6 +104,18 @@ int main(void)
         
         /* Add your code for implementing the shell's logic here */
         int rc = fork();
+
+        if (strcmp(args[0], "cd") == 0) {
+            if (args_count != 2) {
+                printf("USE <cd dirname> or <cd path/dirname>\n");
+            } else {
+                int status = chdir(args[1]);
+                if (status == -1) {
+                    perror("chdir");
+                }
+            }
+            continue;
+        }
 
         if (rc < 0) {
             fprintf(stderr, "Process Malfunction -- Fork Failure, closing program\n");
