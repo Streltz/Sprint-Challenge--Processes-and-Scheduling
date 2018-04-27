@@ -4,8 +4,7 @@
 
 Add your answers inline, below, with your pull request.
 
-1. List all of the main states a process may be in at any point in time on a
-   standard Unix system. Briefly explain what each of these states mean.
+1. List all of the main states a process may be in at any point in time on a standard Unix system. Briefly explain what each of these states mean.
 
 2. What is a Zombie Process? How does it get created? How does it get destroyed?
 
